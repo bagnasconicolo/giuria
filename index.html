@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Strada delle Scoperte - Programma Eventi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated gradient background -->
+    <div class="gradient-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <div class="app-container">
+        <!-- Header with glassmorphism -->
+        <header class="glass-header">
+            <div class="header-content">
+                <h1 class="app-title">
+                    <span class="title-icon">🔬</span>
+                    La Strada delle Scoperte
+                </h1>
+                <p class="app-subtitle">Ottobre 2025 • Università di Torino</p>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Search Bar -->
+            <div class="search-container glass-card">
+                <div class="search-wrapper">
+                    <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16zM19 19l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Cerca eventi, luoghi, dipartimenti..." class="search-input">
+                    <button id="clearSearch" class="clear-search" style="display: none;">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M12 4L4 12M4 4l8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filters Container -->
+            <div class="filters-wrapper glass-card">
+                <!-- Date Filter Tiles (Collapsible) -->
+                <div class="filter-section">
+                    <div class="filter-header" onclick="toggleDateFilter()">
+                        <h3 class="filter-title">📅 Seleziona la data</h3>
+                        <svg id="dateFilterIcon" class="collapse-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div id="dateFilterContent" class="filter-content">
+                        <div id="dateButtons" class="date-buttons">
+                            <!-- Date buttons will be generated here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Department Filter Chips -->
+                <div class="filter-section">
+                    <div class="filter-header" onclick="toggleDeptFilter()">
+                        <h3 class="filter-title">🏛️ Dipartimenti</h3>
+                        <svg id="deptFilterIcon" class="collapse-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div id="deptFilterContent" class="filter-content">
+                        <div id="departmentChips" class="chip-container">
+                            <!-- Department chips will be generated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Filters -->
+            <div id="activeFilters" class="active-filters" style="display: none;">
+                <span class="filters-label">Filtri attivi:</span>
+                <div id="filterTags" class="filter-tags"></div>
+                <button id="clearAllFilters" class="clear-all-btn">Cancella tutto</button>
+            </div>
+
+            <!-- View Controls -->
+            <div class="view-controls glass-card">
+                <button id="viewToggle" class="view-toggle-btn">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <rect x="3" y="3" width="6" height="6" stroke="currentColor" stroke-width="1.5" rx="1"/>
+                        <rect x="11" y="3" width="6" height="6" stroke="currentColor" stroke-width="1.5" rx="1"/>
+                        <rect x="3" y="11" width="6" height="6" stroke="currentColor" stroke-width="1.5" rx="1"/>
+                        <rect x="11" y="11" width="6" height="6" stroke="currentColor" stroke-width="1.5" rx="1"/>
+                    </svg>
+                    Vista Timeline
+                </button>
+                <button id="expandAll" class="expand-all-btn">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Espandi tutto
+                </button>
+            </div>
+
+            <!-- Card View Container -->
+            <div id="cardView" class="view-container active">
+                <div id="eventsContainer" class="events-grid">
+                    <!-- Events will be dynamically loaded here -->
+                </div>
+            </div>
+
+            <!-- Timeline View Container -->
+            <div id="timelineView" class="view-container timeline-view">
+                <div id="timelineContainer" class="timeline-container">
+                    <!-- Timeline will be dynamically loaded here -->
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loadingState" class="loading-state">
+                <div class="loader"></div>
+                <p>Caricamento eventi...</p>
+            </div>
+
+            <!-- No Results State -->
+            <div id="noResults" class="no-results" style="display: none;">
+                <div class="no-results-icon">🔍</div>
+                <h3>Nessun evento trovato</h3>
+                <p>Prova a modificare i filtri di ricerca</p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>© 2025 CHARM</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
