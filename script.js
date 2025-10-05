@@ -113,7 +113,7 @@ function clearSearch() {
 // Load and parse CSV
 async function loadEvents() {
     try {
-        const response = await fetch('la_strada_delle_scoperte_events.csv');
+        const response = await fetch('la_strada_delle_scoperte_updated.csv');
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
